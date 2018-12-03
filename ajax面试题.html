@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+	<script>
+		//	1、***什么是AJAX，为什么要使用Ajax（请谈一下你对Ajax的认识）
+		//	什么是ajax：
+		//	AJAX是“Asynchronous JavaScript and XML”的缩写。他是指一种创建交互式网页应用的网页开发技术。
+		//	Ajax包含下列技术：
+		//	基于web标准（standards-basedpresentation）XHTML+CSS的表示；
+		//	使用 DOM（Document ObjectModel）进行动态显示及交互；
+		//	使用 XML 和 XSLT 进行数据交换及相关操作；
+		//	使用 XMLHttpRequest 进行异步数据查询、检索；
+		//	使用 JavaScript 将所有的东西绑定在一起。
+		//	2、***为什么要用ajax：
+		//	Ajax应用程序的优势在于：
+		//	1. 通过异步模式，提升了用户体验
+		//	2. 优化了浏览器和服务器之间的传输，减少不必要的数据往返，减少了带宽占用
+		//	3. Ajax引擎在客户端运行，承担了一部分本来由服务器承担的工作，从而减少了大用户量下的服务器负载。
+		//	AJAX最大的特点是什么。
+		//	Ajax可以实现动态不刷新（局部刷新）
+		//	就是能在不更新整个页面的前提下维护数据。这使得Web应用程序更为迅捷地回应用户动作，并避免了在网络上发送那些没有改变过的信息。
+		//
+		//	3、请介绍一下XMLhttprequest对象。
+		//	Ajax的核心是JavaScript对象XmlHttpRequest。该对象在Internet Explorer 5中首次引入，它是一种支持异步请求的技术。简而言之，XmlHttpRequest使您可以使用JavaScript向服务器提出请求并处理响应，而不阻塞用户。通过XMLHttpRequest对象，Web开发人员可以在页面加载以后进行页面的局部更新。
+		//	4、AJAX技术体系的组成部分有哪些。
+		//	HTML，css，dom，xml，xmlHttpRequest，javascript
+		//	5、AJAX应用和传统Web应用有什么不同。
+		//	在传统的Javascript编程中，如果想得到服务器端数据库或文件上的信息，或者发送客户端信息到服务器，需要建立一个HTML form然后GET或者POST数据到服务器端。用户需要点击”Submit”按钮来发送或者接受数据信息，然后等待服务器响应请求，页面重新加载。
+		//	因为服务器每次都会返回一个新的页面， 所以传统的web应用有可能很慢而且用户交互不友好。
+		//	使用AJAX技术， 就可以使Javascript通过XMLHttpRequest对象直接与服务器进行交互。
+		//	通过HTTP Request， 一个web页面可以发送一个请求到web服务器并且接受web服务器返回的信息(不用重新加载页面)，展示给用户的还是通一个页面，用户感觉页面刷新，也看不到到Javascript后台进行的发送请求和接受响应。
+		//	6、AJAX请求总共有多少种CALLBACK。
+		//	Ajax请求总共有八种Callback
+		//	onSuccess
+		//	onFailure
+		//	onUninitialized
+		//	onLoading
+		//	onLoaded
+		//	onInteractive
+		//	onComplete
+		//	onException
+		//	7.Ajax和javascript的区别。
+		//	
+		//	javascript是一种在浏览器端执行的脚本语言，Ajax是一种创建交互式网页应用的开发技术 ，它是利用了一系列相关的技术其中就包括javascript。
+		//	Javascript是由网景公司开发的一种脚本语言，它和sun公司的java语言是没有任何关系的，它们相似的名称只是一种行销策略。
+		//	在一般的web开发中，javascript是在浏览器端执行的，我们可以用javascript控制浏览器的行为和内容。
+		//	在 Ajax应用中信息是如何在浏览器和服务器之间传递的
+		// 	 通过XML数据或者字符串
+		//	8、在浏览器端如何得到服务器端响应的XML数据。
+		//  XMLHttpRequest对象的responseXMl属性
+		//
+		//	9、 XMLHttpRequest对象在IE和Firefox中创建方式有没有不同。
+		//
+		//	有，IE中通过new ActiveXObject()得到，Firefox中通过newXMLHttpRequest()得到
+		//
+		//	10、***介绍一下XMLHttpRequest对象的常用方法和属性。
+		// 	open(“method”,”URL”) 建立对服务器的调用，第一个参数是HTTP请求    方式可以为GET，POST或任何服务器所支持的您想调用的方式。
+		// 	第二个参数是请求页面的URL。
+		//  send()方法，发送具体请求
+		//  abort()方法，停止当前请求
+		//  readyState属性   请求的状态 有5个可取值0=未初始化 ，1=正在加载
+		//  2=以加载，3=交互中，4=完成
+		//  responseText 属性  服务器的响应，表示为一个串
+		//  reponseXML 属性 服务器的响应，表示为XML
+		//  status   服务器的HTTP状态码，200对应ok  400对应not found
+		//	12、什么是XML
+		//
+		//	XML是扩展标记语言，能够用一系列简单的标记描述数据
+		//
+		//	13、XML的解析方式
+		// 	常用的用dom解析和sax解析。dom解析是一次性读取xml文件并将其构造为DOM对象供程序使用，优点是操作方便，但是比较耗内存。Sax是按事件驱动的方式解析的，占用内存少，但是编程复杂
+		//	14、你采用的是什么框架（架包）
+		//
+		// 	这题是必问的，一般也是最开始就会问到。
+		// 	 在java中比较流行的有 dojo, Prototype , JQuery, Dwr, extjs  等等
+		// 	 
+		// 	 
+		//	15、如果熟悉某种ajax框架，他可能会问到怎样在程序中使用这种框架
+		//
+		//	DWR框架介绍
+		//  DWR(DirectWeb Remoting)是一个WEB远程调用框架.利用这个框架可以让AJAX开发变得很简单.利用DWR可以在客户端利用JavaScript直接调用服务端的Java方法并返回值给JavaScript就好像直接本地客户端调用一样(DWR根据Java类来动态生成JavaScrip代码).
+		// 	DWR的实现原理是通过反射，将java翻译成javascript，然后利用回调机制，从而实现了javascript调用Java代码
+		//	16、介绍一下Prototype的$()函数，$F()函数，$A()函数都是什么作用
+		//
+		//	$() 方法是在DOM中使用过于频繁的document.getElementById() 方法的一个便利的简写，就像这个DOM方法一样，这个方法返回参数传入的id的那个元素。
+		//	$F()函数是另一个大收欢迎的“快捷键”，它能用于返回任何表单输入控件的值，比如textbox,drop-down list。这个方法也能用元素id或元素本身做为参数。
+		//	$A()函数能把它接收到的单个的参数转换成一个Array对象。
+		//
+		//	17、介绍一下XMLHttpRequest对象
+		//
+		//	通过XMLHttpRequest对象，Web开发人员可以在页面加载以后进行页面的局部更新。
+		//	AJAX开始流行始于Google在2005年使用的”Google Suggest”。
+		//	“Google Suggest”就是使用XMLHttpRequest对象来创建动态的Web接口：
+		//	当用户开始输入google的搜索框，Javascript发送用户输入的字符到服务器，然后服务器返回一个建议列表。
+		//	XMLHttpRequest对象在IE5.0+, Safari 1.2, Mozilla1.0/Firefox, Opera 8+ 和NetScapt7 开始被支持。
+		//
+		//	18、AJAX的全称是什么？ 介绍一下AJAX？
+		//
+		//	AJAX的全称是Asynchronous JavaScript And XML.
+		//	AJAX是2005年由Google发起并流行起来的编程方法， AJAX不是一个新的编程语言，但是它是一个使用已有标准的新的编程技术。
+		//	使用AJAX可以创建更好，更快，更用户界面友好的Web应用。
+		//	AJAX技术基于Javascript和HTTP Request.
+		//
+		//	19、Ajax主要包含了哪些技术？
+		//	Ajax（Asynchronous JavaScript + XML）的定义
+		//	基于web标准（standards-based presentation）XHTML+CSS的表示；
+		//	使用 DOM（Document Object Model）进行动态显示及交互；
+		//	使用 XML 和 XSLT 进行数据交换及相关操作；
+		//	使用XMLHttpRequest 进行异步数据查询、检索；
+		//	使用 JavaScript 将所有的东西绑定在一起。英文参见Ajax的提出者Jesse James Garrett的原文,原文题目(Ajax: A New Approach to Web Applications)。
+		//	类似于DHTML或LAMP，AJAX不是指一种单一的技术，而是有机地利用了一系列相关的技术。事实上，一些基于AJAX的“派生/合成”式（derivative/composite）的技术正在出现，如“AFLAX”。
+		//	AJAX的应用使用支持以上技术的web浏览器作为运行平台。这些浏览器目前包括：Mozilla、Firefox、Internet Explorer、Opera、Konqueror及Safari。但是Opera不支持XSL格式对象，也不支持XSLT。
+		//
+		//	20、***AJAX都有哪些优点和缺点？
+		//	1、最大的一点是页面无刷新，用户的体验非常好。
+		//	2、使用异步方式与服务器通信，具有更加迅速的响应能力。
+		//	3、可以把以前一些服务器负担的工作转嫁到客户端，利用客户端闲置的能力来处理，减轻服务器和带宽的负担，节约空间和宽带租用成本。并且减轻服务器的负担，ajax的原则是“按需取数据”，可以最大程度的减少冗余请求，和响应对服务器造成的负担。
+		//	4、基于标准化的并被广泛支持的技术，不需要下载插件或者小程序。
+		//	ajax的缺点
+		//	1、ajax不支持浏览器back按钮。
+		//	2、安全问题 AJAX暴露了与服务器交互的细节。
+		//	3、对搜索引擎的支持比较弱。
+		//	4、破坏了程序的异常机制。
+		//	5、不容易调试。
+		//	
+		//	21:****原生js ajax请求有几个步骤？分别是什么
+		//	//创建 XMLHttpRequest 对象
+		//	var ajax = new XMLHttpRequest();
+		//	//规定请求的类型、URL 以及是否异步处理请求。
+		//	ajax.open('GET',url,true);
+		//	//发送信息至服务器时内容编码类型
+		//	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		//	//发送请求
+		//	ajax.send(null);  
+		//	//接受服务器响应数据
+		//	ajax.onreadystatechange = function () {
+		//  if (obj.readyState == 4 && (obj.status == 200 || obj.status == 304)) { 
+		//  }
+		//	};
+		//	22跨域解决方案有哪些？
+		//	1: jsonp 只能解决get跨域(问的最多)
+		//	原理： 动态创建一个script标签。 利用script标签的src属性不受同源策略限制。 因为所有的src属性和href属性都不受同源策略限制。 可以请求第三方服务器数据内容。
+		//	步骤：
+		//	去创建一个script标签
+		//	script的src属性设置接口地址
+		//	接口参数, 必须要带一个自定义函数名 要不然后台无法返回数据。
+		//	通过定义函数名去接收后台返回数据
+		//	//去创建一个script标签
+		//	var script = document.createElement("script");
+		//	//script的src属性设置接口地址 并带一个callback回调函数名称
+		//	script.src = "http://127.0.0.1:8888/index.php?callback=jsonpCallback";
+		//	//插入到页面
+		//	document.head.appendChild(script);
+		//	//通过定义函数名去接收后台返回数据
+		//	function jsonpCallback(data) {
+		//		//注意  jsonp返回的数据是json对象可以直接使用
+		//		//ajax  取得数据是json字符串需要转换成json对象才可以使用。
+		//	}
+		//
+		//	2: CORS： 跨域资源共享
+		//	原理： 服务器设置Access - Control - Allow - OriginHTTP响应头之后， 浏览器将会允许跨域请求
+		//	限制： 浏览器需要支持HTML5， 可以支持POST， PUT等方法兼容ie9以上
+		//	需要后台设置
+		//	Access - Control - Allow - Origin: * //允许所有域名访问，或者
+		//	Access - Control - Allow - Origin: http: //a.com   //只允许所有域名访问
+		//	3: 设置 document.domain
+		//	原理： 相同主域名不同子域名下的页面， 可以设置document.domain让它们同域
+		//	限制： 同域document提供的是页面间的互操作， 需要载入iframe页面
+		//	// URL http://a.com/foo
+		//	var ifr = document.createElement('iframe');
+		//	ifr.src = 'http://b.a.com/bar';
+		//	ifr.onload = function() {
+		//		var ifrdoc = ifr.contentDocument || ifr.contentWindow.document;
+		//		ifrdoc.getElementsById("foo").innerHTML);
+		//	};
+		//
+		//	ifr.style.display = 'none';
+		//	document.body.appendChild(ifr);
+		//	4: 用Apache做转发（ 逆向代理）， 让跨域变成同域
+		//	23、**HTTP状态码都有哪些？　　　
+		//　		200 OK 客户端请求成功
+		//　		301 资源(网页等)被永久转移到其他URL
+		//　		400 Bad Request 客户端请求有语法错误，不能被服务器所理解
+		//　		403 Forbidden 服务器收到请求，但是拒绝提供服务
+		//　		404 Not Found 请求资源部存在，输入了错误的URL
+		//　		500 Internal Server Error 服务器发生不可预期的错误
+		//　		503 Server Unavailable 服务器当前不能处理客户端的请求，一段时间后可能恢复正常。
+
+		//	24.***GET与POST方法的区别
+		//		get主要是从服务器获取资源， post主要是像服务器发送数据
+		//		get传输数据通过url请求， 利用k = v的形式放在url后面， 用 ? 连接， 多个用 & 连接而post是存放在， ajax中的data中的， get传输的过程使用户可见 的， 而post是对用户不可见的。
+		//		get传输的数据量小， 因为受url的长度限制， 但是效率高， post能上传的数据量大
+		//		post较get更安全一些
+		//		get方式传递的中文字符可能会乱码， post支持标准字符集， 可以正确传递中文字符
+
+	</script>
+
+</html>
